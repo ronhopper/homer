@@ -1,0 +1,1 @@
+require 'noun_inflector'
