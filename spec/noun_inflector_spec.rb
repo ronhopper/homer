@@ -68,6 +68,19 @@ describe NounInflector do
     specify { subject.inflect('ἀρχή', :vp).should == 'ἀρχαί' }
   end
 
+  describe "first-declension (alpha masculine)" do
+    specify { subject.inflect('νεανίας', :ns).should == 'νεανίας' }
+    specify { subject.inflect('νεανίας', :gs).should == 'νεανίου' }
+    specify { subject.inflect('νεανίας', :ds).should == 'νεανίᾳ' }
+    specify { subject.inflect('νεανίας', :as).should == 'νεανίαν' }
+    specify { subject.inflect('νεανίας', :vs).should == 'νεανία' }
+    specify { subject.inflect('νεανίας', :np).should == 'νεανίαι' }
+    specify { subject.inflect('νεανίας', :gp).should == 'νεανιῶν' }
+    specify { subject.inflect('νεανίας', :dp).should == 'νεανίαις' }
+    specify { subject.inflect('νεανίας', :ap).should == 'νεανίας' }
+    specify { subject.inflect('νεανίας', :vp).should == 'νεανίαι' }
+  end
+
   describe "second-declension (masculine/feminine early-accent)" do
     specify { subject.inflect('ἄνθρωπος', :ns).should == 'ἄνθρωπος' }
     specify { subject.inflect('ἄνθρωπος', :gs).should == 'ἀνθρώπου' }
@@ -134,3 +147,4 @@ describe NounInflector do
   end
 
 end
+
