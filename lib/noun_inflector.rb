@@ -9,6 +9,7 @@ module NounInflector
     when /η$/ then inflect_d1_eta_pure_early_accent(lemma, inflection)
     when /ή$/ then inflect_d1_eta_pure_final_accent(lemma, inflection)
     when /ας$/ then inflect_d1_m_alpha(lemma, inflection)
+    when /ης$/ then inflect_d1_m_eta(lemma, inflection)
     when /ος$/ then inflect_d2_mf_early_accent(lemma, inflection)
     when /ός$/ then inflect_d2_mf_final_accent(lemma, inflection)
     when /ον$/ then inflect_d2_n_early_accent(lemma, inflection)
@@ -60,6 +61,12 @@ private
     stem = lemma[0..-3]
     stem = remove_accent(stem) if inflection == :gp
     stem + D1MA_UNACCENTED_ENDINGS[inflection]
+  end
+
+  def self.inflect_d1_m_eta(lemma, inflection)
+    stem = lemma[0..-3]
+    stem = remove_accent(stem) if inflection == :gp
+    stem + D1MH_UNACCENTED_ENDINGS[inflection]
   end
 
   def self.inflect_d2_mf_early_accent(lemma, inflection)
@@ -146,6 +153,14 @@ private
     :gs => 'ου', :gp => 'ῶν',
     :ds => 'ᾳ',  :dp => 'αις',
     :as => 'αν', :ap => 'ας',
+    :vs => 'α',  :vp => 'αι'
+  }
+
+  D1MH_UNACCENTED_ENDINGS = {
+    :ns => 'ης', :np => 'αι',
+    :gs => 'ου', :gp => 'ῶν',
+    :ds => 'ῃ',  :dp => 'αις',
+    :as => 'ην', :ap => 'ας',
     :vs => 'α',  :vp => 'αι'
   }
 
