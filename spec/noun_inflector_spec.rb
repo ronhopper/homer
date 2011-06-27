@@ -3,7 +3,59 @@ require 'spec_helper'
 
 describe NounInflector do
 
-  describe "first-declension accented eta nouns" do
+  describe "first-declension (alpha-impure early-accent)" do
+    specify { subject.inflect('γλῶσσα', :ns).should == 'γλῶσσα' }
+    specify { subject.inflect('γλῶσσα', :gs).should == 'γλώσσης' }
+    specify { subject.inflect('γλῶσσα', :ds).should == 'γλώσσῃ' }
+    specify { subject.inflect('γλῶσσα', :as).should == 'γλῶσσαν' }
+    specify { subject.inflect('γλῶσσα', :vs).should == 'γλῶσσα' }
+    specify { subject.inflect('γλῶσσα', :np).should == 'γλῶσσαι' }
+    specify { subject.inflect('γλῶσσα', :gp).should == 'γλωσσῶν' }
+    specify { subject.inflect('γλῶσσα', :dp).should == 'γλώσσαις' }
+    specify { subject.inflect('γλῶσσα', :ap).should == 'γλῶσσας' }
+    specify { subject.inflect('γλῶσσα', :vp).should == 'γλῶσσαι' }
+  end
+
+  describe "first-declension (alpha-pure early-accent)" do
+    specify { subject.inflect('ἀλήθεια', :ns).should == 'ἀλήθεια' }
+    specify { subject.inflect('ἀλήθεια', :gs).should == 'ἀληθείας' }
+    specify { subject.inflect('ἀλήθεια', :ds).should == 'ἀληθείᾳ' }
+    specify { subject.inflect('ἀλήθεια', :as).should == 'ἀλήθειαν' }
+    specify { subject.inflect('ἀλήθεια', :vs).should == 'ἀλήθεια' }
+    specify { subject.inflect('ἀλήθεια', :np).should == 'ἀλήθειαι' }
+    specify { subject.inflect('ἀλήθεια', :gp).should == 'ἀληθειῶν' }
+    specify { subject.inflect('ἀλήθεια', :dp).should == 'ἀληθείαις' }
+    specify { subject.inflect('ἀλήθεια', :ap).should == 'ἀληθείας' }
+    specify { subject.inflect('ἀλήθεια', :vp).should == 'ἀλήθειαι' }
+  end
+
+  describe "first-declension (alpha-pure final-accent)" do
+    specify { subject.inflect('δωρεά', :ns).should == 'δωρεά' }
+    specify { subject.inflect('δωρεά', :gs).should == 'δωρεᾶς' }
+    specify { subject.inflect('δωρεά', :ds).should == 'δωρεᾷ' }
+    specify { subject.inflect('δωρεά', :as).should == 'δωρεάν' }
+    specify { subject.inflect('δωρεά', :vs).should == 'δωρεά' }
+    specify { subject.inflect('δωρεά', :np).should == 'δωρεαί' }
+    specify { subject.inflect('δωρεά', :gp).should == 'δωρεῶν' }
+    specify { subject.inflect('δωρεά', :dp).should == 'δωρεαῖς' }
+    specify { subject.inflect('δωρεά', :ap).should == 'δωρεάς' }
+    specify { subject.inflect('δωρεά', :vp).should == 'δωρεαί' }
+  end
+
+  describe "first-declension (eta-pure early-accent)" do
+    specify { subject.inflect('ἀγάπη', :ns).should == 'ἀγάπη' }
+    specify { subject.inflect('ἀγάπη', :gs).should == 'ἀγάπης' }
+    specify { subject.inflect('ἀγάπη', :ds).should == 'ἀγάπῃ' }
+    specify { subject.inflect('ἀγάπη', :as).should == 'ἀγάπην' }
+    specify { subject.inflect('ἀγάπη', :vs).should == 'ἀγάπη' }
+    specify { subject.inflect('ἀγάπη', :np).should == 'ἀγᾶπαι' }
+    specify { subject.inflect('ἀγάπη', :gp).should == 'ἀγαπῶν' }
+    specify { subject.inflect('ἀγάπη', :dp).should == 'ἀγάπαις' }
+    specify { subject.inflect('ἀγάπη', :ap).should == 'ἀγάπας' }
+    specify { subject.inflect('ἀγάπη', :vp).should == 'ἀγάπαι' }
+  end
+
+  describe "first-declension (eta-pure final-accent)" do
     specify { subject.inflect('ἀρχή', :ns).should == 'ἀρχή' }
     specify { subject.inflect('ἀρχή', :gs).should == 'ἀρχῆς' }
     specify { subject.inflect('ἀρχή', :ds).should == 'ἀρχῇ' }
@@ -16,7 +68,7 @@ describe NounInflector do
     specify { subject.inflect('ἀρχή', :vp).should == 'ἀρχαί' }
   end
 
-  describe "second-declension nouns (early-accent)" do
+  describe "second-declension (masculine/feminine early-accent)" do
     specify { subject.inflect('ἄνθρωπος', :ns).should == 'ἄνθρωπος' }
     specify { subject.inflect('ἄνθρωπος', :gs).should == 'ἀνθρώπου' }
     specify { subject.inflect('ἄνθρωπος', :ds).should == 'ἀνθρώπῳ' }
@@ -29,7 +81,7 @@ describe NounInflector do
     specify { subject.inflect('ἄνθρωπος', :vp).should == 'ἄνθρωποι' }
   end
 
-  describe "second-declension nouns (final-accent)" do
+  describe "second-declension (masculine/feminine final-accent)" do
     specify { subject.inflect('ἀδελφός', :ns).should == 'ἀδελφός' }
     specify { subject.inflect('ἀδελφός', :gs).should == 'ἀδελφοῦ' }
     specify { subject.inflect('ἀδελφός', :ds).should == 'ἀδελφῷ' }
@@ -42,7 +94,7 @@ describe NounInflector do
     specify { subject.inflect('ἀδελφός', :vp).should == 'ἀδελφοί' }
   end
 
-  describe "second-declension nouns (penult-circumflex)" do
+  describe "second-declension (masculine/feminine penult-circumflex)" do
     specify { subject.inflect('δοῦλος', :ns).should == 'δοῦλος' }
     specify { subject.inflect('δοῦλος', :gs).should == 'δούλου' }
     specify { subject.inflect('δοῦλος', :ds).should == 'δούλῳ' }
@@ -55,7 +107,7 @@ describe NounInflector do
     specify { subject.inflect('δοῦλος', :vp).should == 'δοῦλοι' }
   end
 
-  describe "second-declension nouns (nueter early-accent)" do
+  describe "second-declension (nueter early-accent)" do
     specify { subject.inflect('δῶρον', :ns).should == 'δῶρον' }
     specify { subject.inflect('δῶρον', :gs).should == 'δώρου' }
     specify { subject.inflect('δῶρον', :ds).should == 'δώρῳ' }
@@ -68,7 +120,7 @@ describe NounInflector do
     specify { subject.inflect('δῶρον', :vp).should == 'δῶρα' }
   end
 
-  describe "second-declension nouns (nueter final-accent)" do
+  describe "second-declension (nueter final-accent)" do
     specify { subject.inflect('ἱερόν', :ns).should == 'ἱερόν' }
     specify { subject.inflect('ἱερόν', :gs).should == 'ἱεροῦ' }
     specify { subject.inflect('ἱερόν', :ds).should == 'ἱερῷ' }
@@ -80,18 +132,5 @@ describe NounInflector do
     specify { subject.inflect('ἱερόν', :ap).should == 'ἱερά' }
     specify { subject.inflect('ἱερόν', :vp).should == 'ἱερά' }
   end
-
-=begin
-  LETTERS = "αβγδεζηθικλμνξοπρςστυφχψω"
-  ALPHA   = "αὰάᾶἀἂἄἆἁἃἅἇᾳᾲᾴᾷ"
-  EPSILON = "εὲέ ἐἒἔ ἑἓἕ     "
-  ETA     = "ηὴήῆἠἢἤἦἡἣἥἧῃῂῄῇ"
-  IOTA    = "ιὶίῖἰἲἴἶἱἳἵἷ    "
-  OMICRON = "οὸό ὀὂὄ ὁὃὅ     "
-  RHO     = "ρ   ῤ   ῥ       "
-  UPSILON = "υὺύῦὐὒὔὖὑὓὕὗ    "
-  OMEGA   = "ωὼώῶὠὢὤὦὡὣὥὧῳῲῴῷ"
-  end
-=end
 
 end
