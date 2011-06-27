@@ -81,7 +81,7 @@ describe NounInflector do
     specify { subject.inflect('νεανίας', :vp).should == 'νεανίαι' }
   end
 
-  describe "first-declension (eta masculine)" do
+  describe "first-declension (eta masculine early-accent)" do
     specify { subject.inflect('κλέπτης', :ns).should == 'κλέπτης' }
     specify { subject.inflect('κλέπτης', :gs).should == 'κλέπτου' }
     specify { subject.inflect('κλέπτης', :ds).should == 'κλέπτῃ' }
@@ -92,6 +92,19 @@ describe NounInflector do
     specify { subject.inflect('κλέπτης', :dp).should == 'κλέπταις' }
     specify { subject.inflect('κλέπτης', :ap).should == 'κλέπτας' }
     specify { subject.inflect('κλέπτης', :vp).should == 'κλέπται' }
+  end
+
+  describe "first-declension (eta masculine final-accent)" do
+    specify { subject.inflect('κριτής', :ns).should == 'κριτής' }
+    specify { subject.inflect('κριτής', :gs).should == 'κριτοῦ' }
+    specify { subject.inflect('κριτής', :ds).should == 'κριτῇ' }
+    specify { subject.inflect('κριτής', :as).should == 'κριτήν' }
+    specify { subject.inflect('κριτής', :vs).should == 'κριτά' }
+    specify { subject.inflect('κριτής', :np).should == 'κριταί' }
+    specify { subject.inflect('κριτής', :gp).should == 'κριτῶν' }
+    specify { subject.inflect('κριτής', :dp).should == 'κριταῖς' }
+    specify { subject.inflect('κριτής', :ap).should == 'κριτάς' }
+    specify { subject.inflect('κριτής', :vp).should == 'κριταί' }
   end
 
   describe "second-declension (masculine/feminine early-accent)" do
