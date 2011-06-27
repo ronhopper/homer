@@ -55,8 +55,33 @@ describe NounInflector do
     specify { subject.inflect('δοῦλος', :vp).should == 'δοῦλοι' }
   end
 
+  describe "second-declension nouns (nueter early-accent)" do
+    specify { subject.inflect('δῶρον', :ns).should == 'δῶρον' }
+    specify { subject.inflect('δῶρον', :gs).should == 'δώρου' }
+    specify { subject.inflect('δῶρον', :ds).should == 'δώρῳ' }
+    specify { subject.inflect('δῶρον', :as).should == 'δῶρον' }
+    specify { subject.inflect('δῶρον', :vs).should == 'δῶρον' }
+    specify { subject.inflect('δῶρον', :np).should == 'δῶρα' }
+    specify { subject.inflect('δῶρον', :gp).should == 'δώρων' }
+    specify { subject.inflect('δῶρον', :dp).should == 'δώροις' }
+    specify { subject.inflect('δῶρον', :ap).should == 'δῶρα' }
+    specify { subject.inflect('δῶρον', :vp).should == 'δῶρα' }
+  end
+
+  describe "second-declension nouns (nueter final-accent)" do
+    specify { subject.inflect('ἱερόν', :ns).should == 'ἱερόν' }
+    specify { subject.inflect('ἱερόν', :gs).should == 'ἱεροῦ' }
+    specify { subject.inflect('ἱερόν', :ds).should == 'ἱερῷ' }
+    specify { subject.inflect('ἱερόν', :as).should == 'ἱερόν' }
+    specify { subject.inflect('ἱερόν', :vs).should == 'ἱερόν' }
+    specify { subject.inflect('ἱερόν', :np).should == 'ἱερά' }
+    specify { subject.inflect('ἱερόν', :gp).should == 'ἱερῶν' }
+    specify { subject.inflect('ἱερόν', :dp).should == 'ἱεροῖς' }
+    specify { subject.inflect('ἱερόν', :ap).should == 'ἱερά' }
+    specify { subject.inflect('ἱερόν', :vp).should == 'ἱερά' }
+  end
+
 =begin
-  describe "first-declension eta nouns with penultimate accent" do
   LETTERS = "αβγδεζηθικλμνξοπρςστυφχψω"
   ALPHA   = "αὰάᾶἀἂἄἆἁἃἅἇᾳᾲᾴᾷ"
   EPSILON = "εὲέ ἐἒἔ ἑἓἕ     "
@@ -66,18 +91,7 @@ describe NounInflector do
   RHO     = "ρ   ῤ   ῥ       "
   UPSILON = "υὺύῦὐὒὔὖὑὓὕὗ    "
   OMEGA   = "ωὼώῶὠὢὤὦὡὣὥὧῳῲῴῷ"
-    specify { subject.inflect('ἀγάπη', :ns).should == 'ἀγάπη' }
-    specify { subject.inflect('ἀγάπη', :gs).should == 'ἀγάπης' }
-    specify { subject.inflect('ἀγάπη', :ds).should == 'ἀγάπῃ' }
-    specify { subject.inflect('ἀγάπη', :as).should == 'ἀγάπην' }
-    specify { subject.inflect('ἀγάπη', :vs).should == 'ἀγάπη' }
-    specify { subject.inflect('ἀγάπη', :np).should == 'ἀγάπαι' }
-    specify { subject.inflect('ἀγάπη', :gp).should == 'ἀγάπῶν' }
-    specify { subject.inflect('ἀγάπη', :dp).should == 'ἀγάπαις' }
-    specify { subject.inflect('ἀγάπη', :ap).should == 'ἀγάπας' }
-    specify { subject.inflect('ἀγάπη', :vp).should == 'ἀγάπαι' }
   end
 =end
 
 end
-
