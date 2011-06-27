@@ -8,18 +8,23 @@ module NounInflector
       lemma[0..-3] + D2_ACCENTED_ENDINGS[inflection]
     elsif lemma[-2..-1] == 'ος'
       stem = lemma[0..-3]
-      stem = move_oxia_to_end(stem) if [:gs, :ds, :gp, :dp, :ap].include?(inflection)
+      stem = move_oxia_to_last_vowel(stem) if [:gs, :ds, :gp, :dp, :ap].include?(inflection)
       stem + D2_UNACCENTED_ENDINGS[inflection]
     end
   end
 
 private
 
-  def self.move_oxia_to_end(stem)
-    new_stem = stem.tr('άἄἅᾴέἔἕήἤἥῄίἴἵόὄὅύὔὕώὤὥῴ', 'αἀἁᾳεἐἑηἠἡῃιἰἱοὀὁυὐὑωὠὡῳ')
-    i = new_stem.rindex(/[αἀἁᾳεἐἑηἠἡῃιἰἱοὀὁυὐὑωὠὡῳ]/)
-    new_stem[i] = stem[i].tr('αἀἁᾳεἐἑηἠἡῃιἰἱοὀὁυὐὑωὠὡῳ', 'άἄἅᾴέἔἕήἤἥῄίἴἵόὄὅύὔὕώὤὥῴ')
-    new_stem
+  def self.move_oxia_to_last_vowel(stem)
+    stem = remove_accent(stem)
+    i = stem.rindex(/[αἀἁᾳεἐἑηἠἡῃιἰἱοὀὁυὐὑωὠὡῳ]/)
+    stem[i] = stem[i].tr('αἀἁᾳεἐἑηἠἡῃιἰἱοὀὁυὐὑωὠὡῳ', 'άἄἅᾴέἔἕήἤἥῄίἴἵόὄὅύὔὕώὤὥῴ')
+    stem
+  end
+
+  def self.remove_accent(word)
+    word.tr 'ὰάᾶἂἄἆἃἅἇᾲᾴᾷὲέἒἔἓἕὴήῆἢἤἦἣἥἧῂῄῇὶίῖἲἴἶἳἵἷὸόὂὄὃὅὺύῦὒὔὖὓὕὗὼώῶὢὤὦὣὥὧῲῴῷ',
+            'αααἀἀἀἁἁἁᾳᾳᾳεεἐἐἑἑηηηἠἠἠἡἡἡῃῃῃιιιἰἰἰἱἱἱοοὀὀὁὁυυυὐὐὐὑὑὑωωωὠὠὠὡὡὡῳῳῳ'
   end
 
   D1_ENDINGS = {

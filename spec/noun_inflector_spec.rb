@@ -42,6 +42,19 @@ describe NounInflector do
     specify { subject.inflect('ἀδελφός', :vp).should == 'ἀδελφοί' }
   end
 
+  describe "second-declension nouns (penult-circumflex)" do
+    specify { subject.inflect('δοῦλος', :ns).should == 'δοῦλος' }
+    specify { subject.inflect('δοῦλος', :gs).should == 'δούλου' }
+    specify { subject.inflect('δοῦλος', :ds).should == 'δούλῳ' }
+    specify { subject.inflect('δοῦλος', :as).should == 'δοῦλον' }
+    specify { subject.inflect('δοῦλος', :vs).should == 'δοῦλε' }
+    specify { subject.inflect('δοῦλος', :np).should == 'δοῦλοι' }
+    specify { subject.inflect('δοῦλος', :gp).should == 'δούλων' }
+    specify { subject.inflect('δοῦλος', :dp).should == 'δούλοις' }
+    specify { subject.inflect('δοῦλος', :ap).should == 'δούλους' }
+    specify { subject.inflect('δοῦλος', :vp).should == 'δοῦλοι' }
+  end
+
 =begin
   describe "first-declension eta nouns with penultimate accent" do
   LETTERS = "αβγδεζηθικλμνξοπρςστυφχψω"
