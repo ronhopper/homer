@@ -8,11 +8,11 @@ describe Lexicon do
   end
 
   it "has lexemes" do
-    l = @lexicon.find(:G1537)
+    l = @lexicon[:G1537]
     l.lemma.should == 'ἐκ'
     l.pos.should == :prep
     l.attributes.should == [:ς]
-    l = @lexicon.find(:G1722)
+    l = @lexicon[:G1722]
     l.lemma.should == 'ἐν'
     l.pos.should == :prep
     l.attributes.should == []

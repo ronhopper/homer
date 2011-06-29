@@ -1,5 +1,6 @@
 $: << File.dirname(__FILE__)
 
+require 'homer/source_document'
 require 'homer/lexicon'
 require 'homer/lexeme'
 require 'homer/word'
